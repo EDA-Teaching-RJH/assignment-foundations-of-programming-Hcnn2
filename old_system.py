@@ -1,6 +1,6 @@
 n = ["Picard", "Riker", "Data", "Worf"]
 r = ["Captain", "Commander", "Lt. Commander", "Lieutenant"]
-d = ["Command", "Operations", "Security"]
+d = ["Command", "Command", "Operations", "Security"]
 
 active = True
 
@@ -58,7 +58,7 @@ def run_system_monolith():
             for rank in r:
                 if rank == "Captain" or "Commander": 
                     count = count + 1
-            print("High ranking officers: " + count) 
+            print("High ranking officers: " + str(count))
             
         elif opt == "5":
             print("Shutting down.")
