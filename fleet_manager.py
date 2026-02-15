@@ -42,4 +42,18 @@ def add_member(names, ranks, divs, ids):
     ids.append(crew_id)
     print(f"{name} added.")
 
+def remove_member(names, ranks, divs, ids):
+    print("\nREMOVE CREW MEMBER")
+    crew_id = input("Enter ID: ").strip().upper
+    if crew_id in ids:
+        idx = ids.index(crew_id)
+        print(f"Removed: {names[idx]}")
+        del names[idx], ranks[idx], divs[idx], ids[idx]
+    else:
+        print("ID not found.")
 
+def display_roster(names, ranks, divs, ids):
+    print("CREW ROSTER")
+    print(f"{'ID'} {'Name'} {'Rank'} {'Division'}")
+    for i in range(len(names)):
+        print(f"{ids[i]} {names[i]} {ranks[i]} {divs[i]}")
