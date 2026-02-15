@@ -59,7 +59,7 @@ def display_roster(names, ranks, divs, ids):
         print(f"{ids[i]} {names[i]} {ranks[i]} {divs[i]}")
 
 def update_rank(names, ranks, ids):
-    print("\n--- UPDATE RANK ---")
+    print("\nUPDATE RANK")
     crew_id = input("Enter ID: ")
     crew_id = crew_id.strip().upper()
     
@@ -80,3 +80,36 @@ def update_rank(names, ranks, ids):
                 print("Invalid rank.")
     else:
         print("ID not found.")
+
+def count_officers(ranks):
+    count = 0
+    for r in ranks:
+        if r == "Captain" or r == "Commander":
+            count += 1
+    return count
+
+def main():
+    names, ranks, divs, ids = init_database()
+    current_user = input("\nEnter your full name: ").strip()
+    
+    while True:
+        choice = display_menu(current_user)
+        
+        if choice == "1":
+            add_member(names, ranks, divs, ids)
+        elif choice == "2":
+            remove_member(names, ranks, divs, ids)
+        elif choice == "3":
+            update_rank(names, ranks, ids)
+        elif choice == "4":
+            display_roster(names, ranks, divs, ids)
+        elif choice == "5":
+            count = count_officers(ranks)
+            print(f"\nSenior Officers (Captain + Commander): {count}")
+        elif choice == "6":
+            print("\nExirting..")
+            break
+        else:
+            print("Invalid option.")
+
+main()
