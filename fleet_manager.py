@@ -41,3 +41,13 @@ def add_member(names, ranks, divs, ids):
     divs.append(div)
     ids.append(crew_id)
     print(f"{name} added.")
+
+def remove_member(names, ranks, divs, ids):
+    print("\n--- REMOVE CREW MEMBER ---")
+    crew_id = input("Enter ID: ").strip().upper()
+    if crew_id in ids:
+        idx = ids.index(crew_id)
+        print(f"Removed: {names[idx]}")
+        del names[idx], ranks[idx], divs[idx], ids[idx]
+    else:
+        print("ID not found.")
