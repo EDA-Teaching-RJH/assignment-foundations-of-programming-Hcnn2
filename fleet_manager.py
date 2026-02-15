@@ -15,3 +15,29 @@ def display_menu(current_user):
     print("5. Count Senior Officers")
     print("6. Exit")
     return input("Enter your choice (1-5): ")
+
+def add_member(names, ranks, divs, ids):
+    print("\n--- ADD NEW CREW MEMBER ---")
+    name = input("Full Name: ").strip()
+    
+    valid_ranks = ["Ensign", "Lieutenant", "Lieutenant Commander", "Commander", "Captain"]
+    while True:
+        rank = input("Rank (Ensign / Lieutenant / Lieutenant Commander / Commander / Captain): ").strip().title()
+        if rank in valid_ranks: break
+        print("Invalid rank.")
+    
+    while True:
+        div = input("Division (Command / Operations / Sciences): ").strip().title()
+        if div in ["Command", "Operations", "Sciences"]: break
+        print("Invalid division.")
+    
+    while True:
+        crew_id = input("Unique ID: ").strip().upper()
+        if crew_id not in ids: break
+        print("Invalid id.")
+    
+    names.append(name)
+    ranks.append(rank)
+    divs.append(div)
+    ids.append(crew_id)
+    print(f"{name} added.")
