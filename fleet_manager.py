@@ -57,3 +57,26 @@ def display_roster(names, ranks, divs, ids):
     print(f"{'ID'} {'Name'} {'Rank'} {'Division'}")
     for i in range(len(names)):
         print(f"{ids[i]} {names[i]} {ranks[i]} {divs[i]}")
+
+def update_rank(names, ranks, ids):
+    print("\n--- UPDATE RANK ---")
+    crew_id = input("Enter ID: ")
+    crew_id = crew_id.strip().upper()
+    
+    if crew_id in ids:
+        idx = ids.index(crew_id)
+        print(f"Current rank of {names[idx]}: {ranks[idx]}")
+        
+        valid_ranks = ["Ensign", "Lieutenant", "Lieutenant Commander", "Commander", "Captain"]
+        new_rank = ""
+        while True:
+            new_rank = input("New Rank: ")
+            new_rank = new_rank.strip().title()
+            if new_rank in valid_ranks:
+                ranks[idx] = new_rank
+                print("Rank updated.")
+                break
+            else:
+                print("Invalid rank.")
+    else:
+        print("ID not found.")
